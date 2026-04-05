@@ -13,7 +13,6 @@ import { formatCurrency } from "../../utils/helpers";
 const BalanceChart = () => {
   const { transactions, darkMode } = useAppContext();
 
-  // ✅ Group data by month
   const monthlyData = {};
 
   transactions.forEach((t) => {
@@ -46,7 +45,7 @@ const BalanceChart = () => {
 
       <ResponsiveContainer width="100%" height={250}>
         <AreaChart data={data}>
-          {/* ✅ Gradient */}
+        
           <defs>
             <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
               <stop
@@ -62,22 +61,19 @@ const BalanceChart = () => {
             </linearGradient>
           </defs>
 
-          {/* ✅ Grid */}
+          
           <CartesianGrid
             strokeDasharray="3 3"
             stroke={darkMode ? "#374151" : "#e5e7eb"}
           />
 
-          {/* ✅ X Axis */}
           <XAxis dataKey="name" stroke={darkMode ? "#9ca3af" : "#6b7280"} />
 
-          {/* ✅ Y Axis */}
           <YAxis
             stroke={darkMode ? "#9ca3af" : "#6b7280"}
             tickFormatter={(val) => `$${val}`}
           />
 
-          {/* ✅ Tooltip */}
           <Tooltip
             contentStyle={{
               backgroundColor: darkMode ? "#1f2937" : "#ffffff",
@@ -90,7 +86,6 @@ const BalanceChart = () => {
             formatter={(value) => formatCurrency(value)}
           />
 
-          {/* ✅ Area */}
           <Area
             type="monotone"
             dataKey="value"
@@ -107,62 +102,3 @@ const BalanceChart = () => {
 };
 
 export default BalanceChart;
-
-// import {
-//   LineChart,
-//   Line,
-//   XAxis,
-//   YAxis,
-//   Tooltip,
-//   ResponsiveContainer,
-//   Area,
-// } from "recharts";
-// import { getMonthlyTrend } from "../../utils/helpers";
-// import { useAppContext } from "../../context/AppContext";
-
-// const BalanceChart = () => {
-//   const { transactions } = useAppContext();
-//   const data = getMonthlyTrend(transactions);
-
-//   const { darkMode } = useAppContext();
-
-//   return (
-//     <div className="bg-white dark:bg-gray-800 p-5 rounded-xl shadow">
-//       <h3 className="mb-4 font-semibold">Balance Over Time</h3>
-
-//       <ResponsiveContainer width="100%" height={250}>
-//         <LineChart data={data}>
-//           <XAxis stroke={darkMode ? "#ccc" : "#333"} />
-//           <YAxis stroke={darkMode ? "#ccc" : "#333"} />
-//           <Tooltip
-//             contentStyle={{
-//               backgroundColor: darkMode ? "#1f2937" : "#fff",
-//               border: "none",
-//             }}
-//           />
-//           <Line
-//             type="monotone"
-//             dataKey="value"
-//             stroke={darkMode ? "#60a5fa" : "#3b82f6"}
-//           />
-//         </LineChart>
-//       </ResponsiveContainer>
-
-//       <defs>
-//         <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
-//           <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
-//           <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
-//         </linearGradient>
-//       </defs>
-
-//       <Area
-//         type="monotone"
-//         dataKey="value"
-//         stroke="#3b82f6"
-//         fill="url(#colorBalance)"
-//       />
-//     </div>
-//   );
-// };
-
-// export default BalanceChart;

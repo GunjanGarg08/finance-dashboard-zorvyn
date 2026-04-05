@@ -7,7 +7,6 @@ const Insights = () => {
 
   const isIncrease = expenseChange > 0;
 
-  // Extra Insights
   const totalTransactions = transactions.length;
 
   const avgTransaction =
@@ -21,14 +20,12 @@ const Insights = () => {
   return (
     <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all">
 
-      {/* Title */}
       <h3 className="text-center text-3xl font-semibold mb-5 text-gray-800 dark:text-white">
         Insights
       </h3>
 
       <div className="space-y-5">
 
-        {/* Top Category */}
         <div className="flex items-center justify-between">
           <div>
             <p className="text-gray-500 dark:text-gray-400 text-lg">
@@ -40,7 +37,6 @@ const Insights = () => {
           </div>
         </div>
 
-        {/* Monthly Change */}
         <div className="flex items-center justify-between">
           <div>
             <p className="text-gray-500 dark:text-gray-400 text-sm">
@@ -66,7 +62,6 @@ const Insights = () => {
           </div>
         </div>
 
-        {/* Stats Row */}
         <div className="grid grid-cols-2 gap-4">
 
           <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
@@ -89,7 +84,6 @@ const Insights = () => {
 
         </div>
 
-        {/* Smart Insight Message */}
         <div className="text-lg text-center p-2 rounded-lg bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300">
           {isIncrease
             ? "Your spending increased this month. Consider reviewing your expenses."
@@ -102,51 +96,3 @@ const Insights = () => {
 };
 
 export default Insights;
-
-
-
-
-
-
-// import { useAppContext } from "../../context/AppContext";
-// import { getInsights } from "../../utils/helpers";
-
-// const Insights = () => {
-//   const { transactions } = useAppContext();
-//   const { topCategory, expenseChange } = getInsights(transactions);
-
-//   const isIncrease = expenseChange > 0;
-
-//   return (
-//     <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm">
-//       <h3 className="font-semibold mb-4 text-lg">Insights</h3>
-
-//       <div className="space-y-4 text-sm">
-//         <div>
-//           <p className="text-gray-500 dark:text-gray-400">Top Spending</p>
-//           <p className="font-semibold text-lg">{topCategory}</p>
-//         </div>
-
-//         <div>
-//           <p className="text-gray-500 dark:text-gray-400">Monthly Change</p>
-
-//           <p
-//             className={`font-semibold ${
-//               expenseChange > 0 ? "text-red-500" : "text-green-500"
-//             }`}
-//           >
-//             {expenseChange > 0 ? "↑" : "↓"} {expenseChange}%
-//           </p>
-//         </div>
-
-//         <div className="text-xs text-gray-400">
-//           {expenseChange > 0
-//             ? "Spending increased this month"
-//             : "Good job! Spending decreased"}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Insights;

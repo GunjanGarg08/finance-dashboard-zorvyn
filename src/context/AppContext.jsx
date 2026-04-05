@@ -9,8 +9,6 @@ export const AppProvider = ({ children }) => {
     return saved ? JSON.parse(saved) : mockData;
   });
 
-  // const [role, setRole] = useState("viewer");
-
   const [role, setRole] = useState(localStorage.getItem("role") || "viewer");
   const [filters, setFilters] = useState({
     search: "",
@@ -20,8 +18,6 @@ export const AppProvider = ({ children }) => {
     endDate: "",
   });
 
-  // const [darkMode, setDarkMode] = useState(false);
-
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("darkMode") === "true",
   );
@@ -30,20 +26,9 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem("role", role);
   }, [role]);
 
-
-  // Persist data
   useEffect(() => {
     localStorage.setItem("transactions", JSON.stringify(transactions));
   }, [transactions]);
-
-  // Dark mode toggle
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // }, [darkMode]);
 
   return (
     <AppContext.Provider

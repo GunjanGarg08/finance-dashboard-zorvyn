@@ -35,7 +35,7 @@ export const getMonthlyTrend = (transactions) => {
 
   return months.map((month, index) => ({
     name: month,
-    value: 10000 + index * 800 + Math.random() * 500, // mock trend
+    value: 10000 + index * 800 + Math.random() * 500,
   }));
 };
 

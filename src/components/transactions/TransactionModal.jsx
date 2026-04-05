@@ -11,19 +11,16 @@ const TransactionModal = ({ setIsOpen, editData }) => {
     type: "expense",
   });
 
-  // Load edit data
   useEffect(() => {
     if (editData) {
       setForm(editData);
     }
   }, [editData]);
 
-  // Handle change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Submit
   const handleSubmit = () => {
     if (!form.date || !form.category || !form.amount) {
       alert("Please fill all fields");
@@ -31,7 +28,6 @@ const TransactionModal = ({ setIsOpen, editData }) => {
     }
 
     if (editData) {
-      // Update
       const updated = transactions.map((t) =>
         t.id === editData.id
           ? { ...form, id: t.id, amount: Number(form.amount) }
@@ -39,7 +35,6 @@ const TransactionModal = ({ setIsOpen, editData }) => {
       );
       setTransactions(updated);
     } else {
-      // Add
       const newTransaction = {
         ...form,
         id: Date.now(),
@@ -54,19 +49,16 @@ const TransactionModal = ({ setIsOpen, editData }) => {
   return (
     <div
       className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
-      onClick={() => setIsOpen(false)} // click outside closes
+      onClick={() => setIsOpen(false)}
     >
-      {/* Modal */}
       <div
         className="bg-white dark:bg-gray-900 p-6 rounded-2xl w-full max-w-md shadow-xl"
-        onClick={(e) => e.stopPropagation()} // prevent close on click inside
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Title */}
         <h2 className="text-2xl font-semibold mb-5 text-gray-800 dark:text-white">
           {editData ? "Edit Transaction" : "Add Transaction"}
         </h2>
 
-        {/* Form */}
         <div className="space-y-4">
           <input
             type="date"
@@ -105,7 +97,6 @@ const TransactionModal = ({ setIsOpen, editData }) => {
           </select>
         </div>
 
-        {/* Buttons */}
         <div className="flex justify-end gap-3 mt-6">
           <button
             onClick={() => setIsOpen(false)}
