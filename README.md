@@ -8,13 +8,13 @@ This project was developed as part of a frontend assignment, with a strong focus
 
 ## Live Demo
 
--> https://your-project.vercel.app  
+-> https://finance-dashboard-zorvyn-topaz.vercel.app/ 
 
 ---
 
 ## GitHub Repository
 
--> https://github.com/your-username/your-repo  
+-> https://github.com/GunjanGarg08/finance-dashboard-zorvyn
 
 ---
 
